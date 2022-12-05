@@ -7,10 +7,9 @@ assignees: ''
 
 ---
 
-echo "# laravel-learning-record-app" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:nakajima97/laravel-learning-record-app.git
-git push -u origin main
+# 概要
+
+# 終了条件
+
+# アプローチ
+終了条件を達成するためにどのようなアプローチを行うのか記載する
