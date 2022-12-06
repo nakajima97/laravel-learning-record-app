@@ -13,5 +13,6 @@ parameters:
 
     excludePaths:
         - ./*/*/FileToBeExcluded.php
+        - ./app/Http/Controllers/Auth/*
 
     checkMissingIterableValueType: false
