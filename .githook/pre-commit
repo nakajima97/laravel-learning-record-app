@@ -7,8 +7,11 @@ tools/php-cs-fixer/vendor/bin/php-cs-fixer fix app
 
 # エラーがあれば、コミットさせない
 if [ $? -gt 0 ]; then
+	echo "エラーが発生しました。"
 	exit 1
 fi
+
+echo "問題なし"
 
 # エラーがなければ、Linterが変更した差分を取り込んでコミット
 git add ${phpFiles[@]}
