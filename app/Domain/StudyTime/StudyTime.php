@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\StudyRecord;
+namespace App\Domain\StudyTime;
 
-class StudyRecord
+class StudyTime
 {
     private readonly int $minutes;
 
@@ -28,13 +28,13 @@ class StudyRecord
         return (string)$time . ':' . $minutes;
     }
 
-    public function equal(StudyRecord $study_record)
+    public function equal(StudyTime $study_record)
     {
         return $this->minutes === $study_record->getMinutes();
     }
 
-    public function add(StudyRecord $study_record)
+    public function add(StudyTime $study_record)
     {
-        return new StudyRecord($this->minutes + $study_record->getMinutes());
+        return new StudyTime($this->minutes + $study_record->getMinutes());
     }
 }
