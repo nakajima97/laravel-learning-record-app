@@ -45,12 +45,12 @@ class StudyRecord
       $this->study_time = $study_time;
     }
 
-    public function changeMainCategory(Category $main_category)
+    public function changeMainCategory(CategoryEntity $main_category)
     {
       $this->main_category = $main_category;
     }
 
-    public function changeSubCategory(Category $sub_category)
+    public function changeSubCategory(CategoryEntity $sub_category)
     {
       $this->sub_category = $sub_category;
     }
