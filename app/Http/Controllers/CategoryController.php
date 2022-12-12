@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MainCategory;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -18,11 +20,12 @@ class CategoryController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -32,7 +35,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $main_category = new MainCategory();
+
+        $main_category->fill($request->all());
+        $main_category->user_id = Auth::id();
+
+        $main_category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
