@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,11 @@ Route::get('/', function () {
 });
 Route::resource('records' , RecordController::class);
 Route::resource('categories' , CategoryController::class);
+
+Route::get('/sub_categories/create', [SubCategoryController::class, 'create'])
+    ->name('sub_categories.create');
+Route::post('/sub_categories', [SubCategoryController::class, 'store'])
+    ->name('sub_categories.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
