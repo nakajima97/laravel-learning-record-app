@@ -22,36 +22,36 @@ class StudyRecord
 
     public function equal(StudyRecord $study_record)
     {
-      return $this->id === $study_record->id;
+        return $this->id === $study_record->id;
     }
 
     public function getStudyTime()
     {
-      return $this->study_time;
+        return $this->study_time;
     }
 
     public function getMainCategory()
     {
-      return $this->main_category;
+        return $this->main_category;
     }
 
     public function getSubCategory()
     {
-      return $this->sub_category;
+        return $this->sub_category;
     }
 
     public function changeStudyTime(StudyTime $study_time)
     {
-      $this->study_time = $study_time;
+        $this->study_time = $study_time;
     }
 
     public function changeMainCategory(CategoryEntity $main_category)
     {
-      $this->main_category = $main_category;
+        $this->main_category = $main_category;
     }
 
     public function changeSubCategory(CategoryEntity $sub_category)
     {
-      $this->sub_category = $sub_category;
+        $this->sub_category = $sub_category;
     }
 }
