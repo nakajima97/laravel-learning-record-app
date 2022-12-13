@@ -16,6 +16,11 @@
                     <div class="my-4">
                         @foreach ($categories as $category)
                             <h2 class="text-4xl font-extrabold dark:text-white">{{ $category->name }}</h2>
+                            <ul class="space-y-1 max-w-md list-disc list-inside text-gray-500 dark:text-gray-400">
+                            @foreach ($category->SubCategories as $sub_category)
+                                <li>{{ $sub_category->name }}</li>
+                            @endforeach
+                            </ul>
                         @endforeach
                     </div>
                 </div>
