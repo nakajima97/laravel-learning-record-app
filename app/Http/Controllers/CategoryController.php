@@ -15,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index');
+        $categories = MainCategory::where('user_id', Auth::id())->get();
+
+        return view('categories.index', compact('categories'));
     }
 
     /**
