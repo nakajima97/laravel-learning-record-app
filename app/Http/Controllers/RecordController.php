@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MainCategory;
+use App\Models\StudyRecord;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecordController extends Controller
 {
@@ -19,10 +23,18 @@ class RecordController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        $main_categories = MainCategory::where('user_id', Auth::id())->get();
+
+        $sub_categories = new Collection();
+        foreach ($main_categories as $main_category) {
+            $sub_categories = $sub_categories->merge($main_category->SubCategories);
+        }
+
+        return view('records.create', compact('sub_categories'));
     }
 
     /**
@@ -32,7 +44,11 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $study_record = new StudyRecord();
+        $study_record->fill($request->all());
+        $study_record->save();
+
+        return redirect()->route('records.index');
     }
 
     /**
