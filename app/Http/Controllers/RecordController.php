@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MainCategory;
+use App\Models\StudyRecord;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +44,11 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $study_record = new StudyRecord();
+        $study_record->fill($request->all());
+        $study_record->save();
+
+        return redirect()->route('records.index');
     }
 
     /**
