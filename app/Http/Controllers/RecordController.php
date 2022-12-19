@@ -20,7 +20,7 @@ class RecordController extends Controller
     {
         $user = User::find(Auth::id());
 
-        $records = $user->StudyRecords;
+        $records = $user->StudyRecords()->paginate(20);
 
         return view('records.index', compact('records'));
     }

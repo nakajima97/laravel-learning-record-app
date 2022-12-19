@@ -34,6 +34,9 @@
                                             </div>
                                         </li>
                                 @endforeach
+                                <div class="my-2">
+                                    {{ $records->links() }}
+                                </div>
                             @endif
                         </div>
                     </div>
