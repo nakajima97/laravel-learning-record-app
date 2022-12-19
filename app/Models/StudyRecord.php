@@ -13,4 +13,14 @@ class StudyRecord extends Model
         'minute',
         'sub_category_id'
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function SubCategory()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MainCategory;
 use App\Models\StudyRecord;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,11 @@ class RecordController extends Controller
      */
     public function index()
     {
-        return view('records.index');
+        $user = User::find(Auth::id());
+
+        $records = $user->StudyRecords()->paginate(20);
+
+        return view('records.index', compact('records'));
     }
 
     /**
@@ -46,6 +51,7 @@ class RecordController extends Controller
     {
         $study_record = new StudyRecord();
         $study_record->fill($request->all());
+        $study_record->user_id = Auth::id();
         $study_record->save();
 
         return redirect()->route('records.index');

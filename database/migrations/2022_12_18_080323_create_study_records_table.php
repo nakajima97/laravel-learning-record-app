@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('minute');
             $table->foreignId('sub_category_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
