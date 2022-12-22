@@ -13,7 +13,7 @@
                         <form action="{{ route('records.store') }}" method="POST">
                             @csrf
                             <div class="mb-6">
-                                <label for="sab_category_id"
+                                <label for="sab_catego"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">サブカテゴリー</label>
                                 <x-myComponents.select id="sub_categeory" name="sub_category_id" :options="$sub_categories" />
                             </div>

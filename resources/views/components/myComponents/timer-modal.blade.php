@@ -1,12 +1,13 @@
-<div id="staticModal" x-show="open" @click.away="open = false"
-    class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+<div id="staticModal" x-show="open"
+    class="fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full flex items-center justify-center"
     x-data="{
         start: null,
         current: null,
         stop: null,
         interval: null
     }">
-    <div class="relative w-full h-full max-w-2xl md:h-auto">
+    <div class="absolute w-full h-full bg-black opacity-60"></div>
+    <div class="relative w-full h-full max-w-2xl md:h-auto" @click.away="open = false">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
