@@ -26,36 +26,39 @@
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
-                <p>
+                <div>
                     <span x-text="getMinute(current, start)"></span> 分
                     <span x-text="getSecond(current, start)"></span> 秒
-                </p>
-            </div>
-            <!-- Modal footer -->
-            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button x-show="!start"
-                    @click="
+                </div>
+                <div>
+                    <button x-show="!start"
+                        @click="
                         start = Date.now()
                         current = start
                         interval = setInterval(() => {current = Date.now()}, 1000)
                     ">Start</button>
 
-                <div x-show="!stop && start">
-                    <button
-                        @click="
+                    <div x-show="!stop && start">
+                        <button
+                            @click="
                             stop = Date.now()
                             clearInterval(interval)
                         ">Stop</button>
-                </div>
+                    </div>
 
-                <div x-show="stop">
-                    <button
-                        @click="
+                    <div x-show="stop">
+                        <button
+                            @click="
                             start = null
                             stop = null
                             current = null
                         ">Reset</button>
+                    </div>
                 </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button @click="setMinuteInput(current, start); open = false">finish</button>
             </div>
         </div>
     </div>
@@ -63,4 +66,8 @@
 <script>
     const getMinute = (current, start) => Math.trunc(((current - start) / 1000) / 60);
     const getSecond = (current, start) => Math.trunc(((current - start) / 1000) % 60);
+
+    const setMinuteInput = (current, start) => {
+        document.querySelector('#minute').value = Math.trunc(((current - start) / 1000) / 60);
+    }
 </script>
