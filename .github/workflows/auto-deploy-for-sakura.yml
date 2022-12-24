@@ -12,6 +12,7 @@ jobs:
       ASSETS_BUILD_FILE_PATH: ${{ secrets.ASSETS_BUILD_FILE_PATH }}
       LARAVEL_DIR: ${{ secrets.LARAVEL_DIR }}
     steps:
+      - uses: actions/checkout@v2
       - name: init
         run: |
           npm run build
