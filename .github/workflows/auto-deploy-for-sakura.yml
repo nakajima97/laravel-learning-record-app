@@ -21,7 +21,7 @@ jobs:
           chmod 600 secret_key
       - name: build & scp
         run: |
-          scp ${USER}@${HOST} -i secret_key public/build {ASSETS_BUILD_FILE_PATH}
+          scp -i secret_key public/build ${USER}@${HOST}:{ASSETS_BUILD_FILE_PATH}
       - name: ssh
         run: |
           ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd {LARAVEL_DIR} && sh ./.github/workflows/deploy.sh"
