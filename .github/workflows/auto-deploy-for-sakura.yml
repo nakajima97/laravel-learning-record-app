@@ -1,0 +1,26 @@
+on:
+  push
+  # branches:
+  #   - mains
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      USER: ${{ secrets.USER }}
+      HOST: ${{ secrets.HOST }}
+      ASSETS_BUILD_FILE_PATH: ${{ secrets.ASSETS_BUILD_FILE_PATH }}
+      LARAVEL_DIR: ${{ secrets.LARAVEL_DIR }}
+    steps:
+      - name: init
+        run: |
+          npm run build
+          echo "$SECRET_KEY" > secret_key
+          chmod 600 secret_key
+      - name: build & scp
+        run: |
+          rm -rf {ASSETS_BUILD_FILE_PATH}
+          scp ${USER}@${HOST} -i secret_key public/build {ASSETS_BUILD_FILE_PATH}
+      - name: ssh
+        run: |
+          ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd {LARAVEL_DIR} && sh ./.github/workflows/deploy.sh"
