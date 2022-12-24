@@ -27,4 +27,4 @@ jobs:
           git branch
           chmod +x ./.github/workflows/deploy.sh
           ls -la .github/workflows
-          ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd {$LARAVEL_DIR} && ls -l ./.github/workflows"
+          ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd {$LARAVEL_DIR} && chmod +x ./.github/workflows/deploy.sh && ./.github/workflows"
