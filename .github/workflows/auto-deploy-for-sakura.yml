@@ -25,5 +25,5 @@ jobs:
       - name: ssh
         run: |
           git branch
-          ls -a
+          ls -a .github/workflows
           ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd {$LARAVEL_DIR} && sh ./.github/workflows/deploy.sh"
