@@ -1,3 +1,4 @@
+name: auto-deploy
 on:
   pull_request:
     branches:
