@@ -21,6 +21,7 @@ jobs:
           chmod 600 secret_key
       - name: build & scp
         run: |
+          ls
           scp -o "StrictHostKeyChecking=no" -i secret_key public/build ${USER}@${HOST}:{ASSETS_BUILD_FILE_PATH}
       - name: ssh
         run: |
