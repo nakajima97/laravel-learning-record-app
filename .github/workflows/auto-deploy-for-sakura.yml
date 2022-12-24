@@ -21,7 +21,6 @@ jobs:
           chmod 600 secret_key
       - name: build & scp
         run: |
-          rm -rf {ASSETS_BUILD_FILE_PATH}
           scp ${USER}@${HOST} -i secret_key public/build {ASSETS_BUILD_FILE_PATH}
       - name: ssh
         run: |
