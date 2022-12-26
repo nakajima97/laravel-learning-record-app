@@ -25,6 +25,16 @@ class StudyRecord extends Model
             ->get();
     }
 
+    public static function fetchThisMonthRecord($user_id)
+    {
+        $today = new Carbon();
+
+        return StudyRecord::where('user_id', $user_id)
+            ->where('created_at', '>=', $today->startOfMonth()->toDateString() . ' 00:00:00')
+            ->where('created_at', '<=', $today->endOfMonth()->toDateString() . ' 23:59:59')
+            ->get();
+    }
+
     public function User()
     {
         return $this->belongsTo(User::class);
