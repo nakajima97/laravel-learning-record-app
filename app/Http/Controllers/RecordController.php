@@ -23,12 +23,12 @@ class RecordController extends Controller
         $records = $user->StudyRecords()->paginate(20);
 
         $todays_records = StudyRecord::fetchTodayRecord($user->id);
-
-        // dd($todays_records);
+        $this_month_records = StudyRecord::fetchThisMonthRecord($user->id);
 
         $todays_total_study_time = $todays_records->sum('minute');
+        $this_month_total_study_time = $this_month_records->sum('minute');
 
-        return view('records.index', compact('records', 'todays_total_study_time'));
+        return view('records.index', compact('records', 'todays_total_study_time', 'this_month_total_study_time'));
     }
 
     /**
