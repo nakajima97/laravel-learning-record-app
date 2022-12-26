@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/login');
+});
 Route::resource('records', RecordController::class);
 Route::resource('categories', CategoryController::class);
 
