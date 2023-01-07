@@ -22,6 +22,7 @@
                         </div>
                         <hr />
                         <div class="my-4">
+                            <p class="text-xl mb-4">今日の記録</p>
                             @if (isset($records))
                                 @foreach ($records as $record)
                                     <ul class="max-w-md divide-y divide-gray-200">
