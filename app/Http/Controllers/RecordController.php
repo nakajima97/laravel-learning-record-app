@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\RecordService;
 
 class RecordController extends Controller
 {
@@ -21,12 +22,8 @@ class RecordController extends Controller
     {
         $user = User::find(Auth::id());
 
-        $today = Carbon::today();
-
-        $records = $user->StudyRecords()
-            ->whereBetween('created_at', [$today->startOfDay()->toDateTimeString(), $today->endOfDay()->toDateTimeString()])
-            ->orderBy('created_at', 'desc')
-            ->paginate(20);
+        $recordService = app()->make(RecordService::class);
+        $records = $recordService->getTodayRecords($user);
 
         $todays_records = StudyRecord::fetchTodayRecord($user->id);
         $this_month_records = StudyRecord::fetchThisMonthRecord($user->id);
