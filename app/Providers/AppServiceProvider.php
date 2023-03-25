@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Service\RecordService;
+use App\Services\RecordService;
 
 class AppServiceProvider extends ServiceProvider
 {
