@@ -14,7 +14,7 @@
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">勉強記録をつける</a>
                         <div class="my-4">
                             今月の勉強時間
-                            {{ floor($this_month_total_study_time / 60) }}時{{ $this_month_total_study_time % 60 }}分
+                            {{ floor($this_month_total_study_time / 60) }}時間{{ $this_month_total_study_time % 60 }}分
                         </div>
                         <div class="my-4">
                             今日の勉強時間
