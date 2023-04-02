@@ -25,7 +25,7 @@ class StoreStudyRecordRequest extends FormRequest
     {
         return [
             'sub_category_id' => 'required',
-            'minute' => 'required'
+            'minute' => 'required|integer|gt:0'
         ];
     }
 }
