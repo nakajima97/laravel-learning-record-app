@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\RecordService;
+use App\Http\Requests\StoreStudyRecordRequest;
 
 class RecordController extends Controller
 {
@@ -56,7 +57,7 @@ class RecordController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function store(Request $request)
+    public function store(StoreStudyRecordRequest $request)
     {
         $study_record = new StudyRecord();
         $study_record->fill($request->all());

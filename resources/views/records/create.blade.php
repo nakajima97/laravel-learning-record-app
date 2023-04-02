@@ -16,10 +16,13 @@
                                 <label for="sab_catego"
                                     class="block mb-2 text-sm font-medium text-gray-900">サブカテゴリー</label>
                                 <x-myComponents.select id="sub_categeory" name="sub_category_id" :options="$sub_categories" />
+                                <x-input-error :messages="$errors->get('sub_category_id')" class="mt-2" />
+
                             </div>
                             <div class="mb-6">
                                 <label for="minute" class="block mb-2 text-sm font-medium text-gray-900">勉強時間</label>
                                 <x-myComponents.input type="text" id="minute" name="minute" />
+                                <x-input-error :messages="$errors->get('minute')" class="mt-2" />
                             </div>
                             <div class="mb-2">
                                 <button type="button" @click="open = true"
