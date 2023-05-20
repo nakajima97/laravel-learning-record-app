@@ -27,7 +27,7 @@
                                 @foreach ($records as $record)
                                     <ul class="max-w-md divide-y divide-gray-200">
                                         <li class="pb-3 sm:pb-4">
-                                            <div class="flex items-center space-x-4">
+                                            <div class="flex items-start space-x-4">
                                                 <div class="flex-1 min-w-0">
                                                     <p class="text-sm font-medium text-gray-900 truncate">
                                                         {{ $record->created_at }}
@@ -35,6 +35,14 @@
                                                     <p class="text-sm text-gray-500 truncate">
                                                         {{ $record->SubCategory->name }}
                                                     </p>
+                                                    <div class="border-dotted border-t-2 border-gray-200">
+                                                        <p class="text-sm text-gray-500 truncate mt-1">
+                                                            メモ
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate ml-1">
+                                                            {{ $record->memo }}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <div
                                                     class="inline-flex items-center text-base font-semibold text-gray-900">
