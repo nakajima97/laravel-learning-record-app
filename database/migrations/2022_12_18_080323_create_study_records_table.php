@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('study_records', function (Blueprint $table) {
             $table->id();
             $table->integer('minute');
+            $table->string('memo', 256);
             $table->foreignId('sub_category_id');
             $table->foreignId('user_id');
             $table->timestamps();

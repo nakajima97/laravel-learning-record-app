@@ -24,6 +24,11 @@
                                 <x-myComponents.input type="text" id="minute" name="minute" />
                                 <x-input-error :messages="$errors->get('minute')" class="mt-2" />
                             </div>
+                            <div class="mb-6">
+                                <label for="memo" class="block mb-2 text-sm font-medium text-gray-900">メモ</label>
+                                <x-myComponents.input type="text" id="memo" name="memo" />
+                                <x-input-error :messages="$errors->get('minute')" class="mt-2" />
+                            </div>
                             <div class="mb-2">
                                 <button type="button" @click="open = true"
                                     class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">タイマー起動</button>

@@ -12,7 +12,8 @@ class StudyRecord extends Model
 
     protected $fillable = [
         'minute',
-        'sub_category_id'
+        'sub_category_id',
+        'memo'
     ];
 
     public static function fetchTodayRecord($user_id)
